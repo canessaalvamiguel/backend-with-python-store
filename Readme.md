@@ -45,3 +45,19 @@ Create superuser:
 ```
 python manage.py createsuperuser
 ```
+
+Create app:
+```
+python manage.py startapp products
+```
+
+Make db migrations and apply all migration changes:
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Install dependency:
+```
+python -m pip install Pillow
+```
