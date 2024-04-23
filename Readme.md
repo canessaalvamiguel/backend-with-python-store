@@ -61,3 +61,8 @@ Install dependency:
 ```
 python -m pip install Pillow
 ```
+
+Open shell:
+```
+python manage.py shell
+```
