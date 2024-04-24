@@ -25,6 +25,11 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+Run the server indicating location of settings file (env management):
+```
+python manage.py runserver --settings=settings.local
+```
+
 ## Useful commands
 Create a new Django project:
 ```
