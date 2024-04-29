@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 
 from products.forms import CommentForm
 from products.models import Product, Comment
@@ -22,6 +22,7 @@ def get_product(request, id):
 
 
 @login_required
+@permission_required('products.add_comment', raise_exception=True)
 def add_new_comment(request, id):
     if request.method == 'POST':
         form = CommentForm(request.POST)

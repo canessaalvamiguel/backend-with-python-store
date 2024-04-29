@@ -23,6 +23,7 @@
         </div>
 
         <div class="row">
+         {% if perms.products.add_comment %}
             <div class="col-5 comment-column">
                 <form action="{% url 'add_new_comment' id=product.id %}"
                     method="post"
@@ -34,7 +35,12 @@
                     <button type="submit" class="save btn btn-dark">Enviar</button>
                 </form>
             </div>
+        {% else %}
+        <h1>Inicia sesion para dejar tus comentarios</h1>
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
 
+{#        {% if perms.products.view_comment %}#}
             <div class="col-7">
                 <h2 class="comment-title text-left">Comentarios</h2>
                 {% for comment in comments %}
@@ -45,6 +51,7 @@
                     </div>
                 {% endfor %}
             </div>
+{#        {% endif %}#}
         </div>
     </div>
 {% endblock %}
