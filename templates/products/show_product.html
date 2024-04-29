@@ -1,29 +1,49 @@
-{% extends 'base/base.html' %}
-
+{% extends "base/base.html" %}
 {% block content %}
-<div class="container">
+    <div class="container">
         <div class="row product-detail-row mt-4 mb-5">
             <div class="col-5">
                 <img src="{{ product.image.url }}"
                      class="img-fluid"
-                     height="">
+                     height=""
+                     alt="{{ product.image.alt }}">
             </div>
             <div class="col-7">
                 <div class="jumbotron">
                     <h1 class="display-4">{{ product.name }}</h1>
                     <div class="price-container">
-{#                            <h5 class="card-title">#}
-{#                                <s>5 USD</s>#}
-{#                            </h5>#}
-                        <h5 class="card-title">{{ product.price }} USD</h5>
+                            <h5 class="card-title">
+                                {{ product.price }} USD
+                            </h5>
                     </div>
                     <hr class="my-4">
-                    <p>
-                        {{ product.brand.description }}
-                    </p>
-
-                    <a class="btn btn-tomato" href="/">Añadir al carrito</a>
+                    <p>{{ product.brand.description }}</p>
                 </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-5 comment-column">
+                <form action="{% url 'add_new_comment' id=product.id %}"
+                    method="post"
+                    class="post-form">
+                    {% csrf_token %}
+                    <div class="input-group mb-4">
+                        {{ form.text }}
+                    </div>
+                    <button type="submit" class="save btn btn-dark">Enviar</button>
+                </form>
+            </div>
+
+            <div class="col-7">
+                <h2 class="comment-title text-left">Comentarios</h2>
+                {% for comment in comments %}
+                    <div class="comment">
+                        <div class="date">{{ comment.created_at }}</div>
+                        <strong>{{ comment.author }}</strong>
+                        <p>{{ comment.text }}</p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
