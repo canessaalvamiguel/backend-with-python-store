@@ -22,12 +22,18 @@ env\Scripts\activate
 ```
 pip install django
 ```
-4. Migrate to db:
+
+4. Create project:
+```
+django-admin startproject my_store
+```
+
+5. Migrate to db:
 ```
 python manage.py migrate
 ```
 
-5. Run the server:
+6. Run the server:
 ```
 python manage.py runserver
 ```
