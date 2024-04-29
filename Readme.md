@@ -1,3 +1,10 @@
+## Running app
+Use the next command:
+```
+make runserver
+```
+Make sure you have a mysql db running. Also, please set your db credentials in:
+```settings/my.cng```
 ## Initial steps
 1. Create virtual environment:
 ```
