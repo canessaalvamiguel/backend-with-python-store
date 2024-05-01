@@ -1,3 +1,6 @@
+## Django App
+This Django-based project implemented a store system using Python. This contains two applications to efficiently manage product data stored and users in MySQL databases. This implementation includes secure user authentication and authorization functionalities, ensuring seamless login and permission validation.
+
 ## Running app
 Use the next command:
 ```
